@@ -244,3 +244,20 @@ body {
       color: $neutral-dark-grayish-blue;
    }
 }
+
+///////////////////
+// FOOTER
+.attribution {
+   display: flex;
+   font-size: var(--font-size-0);
+   color: $neutral-grayish-blue;
+
+   a:link,
+   a:visited {
+      color: $neutral-dark-grayish-blue;
+   }
+   a:hover,
+   a:active {
+      color: $primary-soft-orange;
+   }
+}
