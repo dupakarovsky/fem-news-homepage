@@ -1,0 +1,148 @@
+@use "variables" as *;
+
+%btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0;
+   //
+   width: 3.125rem;
+   aspect-ratio: 1;
+   border: 1px solid transparent;
+   border-radius: unset;
+   background: $neutral-off-white;
+   opacity: 0.9;
+   padding: unset;
+   margin: unset;
+   box-shadow: var(--shadow-1);
+   //
+   position: sticky;
+}
+
+%link {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   //
+   width: min(50%, var(--size-15));
+   font-family: $ff-bold;
+   font-size: var(--font-size-fluid-0);
+   letter-spacing: 5px;
+   text-transform: uppercase;
+   text-align: center;
+   background-color: $primary-soft-red;
+   padding: var(--size-3) var(--size-4);
+   margin: unset;
+}
+
+// Option with transition. Has some weird bug in chrome with the rotate property not being rendered properly
+// .btn-menu {
+//    @extend %btn;
+
+//    &[aria-expanded="false"] {
+//       & .line {
+//          transform-origin: 50% 50%;
+
+//          &.top {
+//             transition: transform calc(var(--ttime) / 2) calc(var(--ttime) / 2) ease, rotate calc(var(--ttime) / 2) ease;
+//          }
+//          &.middle {
+//             transition: opacity 0s calc(var(--ttime) / 2);
+//          }
+//          &.bottom {
+//             transition: transform calc(var(--ttime) / 2) calc(var(--ttime) / 2) ease, rotate calc(var(--ttime) / 2) ease;
+//          }
+//       }
+//    }
+//    &[aria-expanded="true"] {
+//       & .line {
+//          transform-origin: 50% 50%;
+
+//          &.top {
+//             transform: translateY(20px);
+//             rotate: 45deg;
+//             transition: transform calc(var(--ttime) / 2) ease, rotate calc(var(--ttime) / 2) calc(var(--ttime) / 2) ease;
+//          }
+//          &.middle {
+//             opacity: 0;
+//             transition: opacity calc(var(--ttime) / 2) 0s;
+//          }
+//          &.bottom {
+//             transform: translateY(-20px);
+//             rotate: -45deg;
+//             transition: transform calc(var(--ttime) / 2) ease, rotate calc(var(--ttime) / 2) calc(var(--ttime) / 2) ease;
+//          }
+//       }
+//    }
+// }
+
+.btn-menu {
+   @extend %btn;
+
+   &[aria-expanded="false"] {
+      & .line {
+         transform-origin: 50% 50%;
+
+         &.top {
+            --direction: 1;
+            animation: crossBackwards var(--ttime, 0s) linear var(--delay, 0s) 1 normal both;
+         }
+
+         &.middle {
+            --delay: calc(var(--ttime) / 2);
+            opacity: 1;
+            transition: opacity 0s var(--delay, 0s);
+         }
+
+         &.bottom {
+            --direction: -1;
+            animation: crossBackwards var(--ttime, 0s) linear var(--delay, 0s) 1 normal both;
+         }
+      }
+   }
+   &[aria-expanded="true"] {
+      & .line {
+         transform-origin: 50% 50%;
+         &.top {
+            --direction: 1;
+            animation: crossForwards var(--ttime, 0s) linear var(--delay, 0s) 1 normal both;
+         }
+         &.middle {
+            --delay: calc(var(--ttime) / 2);
+            opacity: 0;
+            transition: opacity 0s var(--delay, 0s);
+         }
+         &.bottom {
+            --direction: -1;
+            animation: crossForwards var(--ttime, 0s) linear var(--delay, 0s) 1 normal both;
+         }
+      }
+   }
+}
+
+@keyframes crossForwards {
+   0% {
+      transform: translateY(calc(0px * var(--direction)));
+   }
+   50% {
+      transform: translateY(calc(20px * var(--direction)));
+      rotate: calc(0deg * var(--direction));
+   }
+   100% {
+      transform: translateY(calc(20px * var(--direction)));
+      rotate: calc(45deg * var(--direction));
+   }
+}
+@keyframes crossBackwards {
+   0% {
+      transform: translateY(calc(20px * var(--direction)));
+      rotate: calc(45deg * var(--direction));
+   }
+   50% {
+      transform: translateY(calc(20px * var(--direction)));
+      rotate: calc(0deg * var(--direction));
+   }
+   100% {
+      transform: translateY(calc(0px * var(--direction)));
+   }
+}

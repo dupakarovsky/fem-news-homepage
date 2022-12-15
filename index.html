@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <title>Frontend Mentor | News homepage</title>
+      <meta charset="utf-8" />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="description" content="🙂" />
+      <meta name="color-scheme" content="dark light" />
+
+      <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+      <link rel="stylesheet" href="index.scss" />
+      <script defer type="module" src="/index.js"></script>
+   </head>
+
+   <body>
+      <header class="header">
+         <div class="logo-wrapper">
+            <img class="logo" src="./images/logo.svg" alt="Website Logo" />
+         </div>
+
+         <div class="menu-wrapper">
+            <button class="btn-menu" aria-controls="primary-navigation" aria-expanded="false" id="menu-button">
+               <svg fill="#000" class="hamburger" viewBox="0 0 100 100" width="100">
+                  <!-- Rx is border-radius. We want it to be half of the x value  -->
+                  <rect class="line top" width="80" height="10" x="10" y="25" rx="5"></rect>
+                  <rect class="line middle" width="80" height="10" x="10" y="45" rx="5"></rect>
+                  <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5"></rect>
+               </svg>
+            </button>
+         </div>
+
+         <div class="menu-bg" id="menu-bg" data-open="false"></div>
+
+         <nav class="navigation nav" id="primary-navigation" data-open="false">
+            <ul class="nav-items" role="list">
+               <li class="nav-item"><a href="#">Home</a></li>
+               <li class="nav-item"><a href="#">New</a></li>
+               <li class="nav-item"><a href="#">Popular</a></li>
+               <li class="nav-item"><a href="#">Trending</a></li>
+               <li class="nav-item"><a href="#">Categories</a></li>
+            </ul>
+         </nav>
+      </header>
+
+      <main class="main">
+         <section class="hero">
+            <picture class="hero__image-wrapper">
+               <source media="(max-width: 719px)" srcset="./images/image-web-3-mobile.jpg" />
+               <source media="(min-width: 720px)" srcset="./images/image-web-3-desktop.jpg" />
+               <img class="hero__image" src="./images/image-web-3-mobile.jpg" alt="Image of a puzzle" />
+            </picture>
+            <div class="hero__content">
+               <h1 class="hero__heading">The Bright Future of Web 3.0?</h1>
+               <div class="hero__group">
+                  <p class="hero__text">
+                     We dive into the next evolution of the web that claims to put the power of the platforms back into
+                     the hands of the people. But is it really fulfilling its promise?
+                  </p>
+                  <a class="hero__cta" href="#">read more</a>
+               </div>
+            </div>
+         </section>
+
+         <section class="new-panel">
+            <h2 class="new-panel__heading">New</h2>
+
+            <div class="new-panel__content">
+               <a href="#" class="new-panel__link new-panel__subheading">Hydrogen VS Electric Cars</a>
+               <p class="new-panel__text">Will hydrogen-fueled cars ever catch up to EVs?</p>
+            </div>
+
+            <div class="new-panel__content">
+               <a href="#" class="new-panel__link new-panel__subheading">The Downsides of AI Artistry</a>
+               <p class="new-panel__text">What are the possible adverse effects of on-demand AI image generation?</p>
+            </div>
+
+            <div class="new-panel__content">
+               <a href="#" class="new-panel__link new-panel__subheading">Is VC Funding Drying Up?</a>
+               <p class="new-panel__text">
+                  Private funding by VC firms is down 50% YOY. We take a look at what that means.
+               </p>
+            </div>
+         </section>
+
+         <section class="articles">
+            <article class="article">
+               <div class="article__img-wrapper">
+                  <img src="./images/image-retro-pcs.jpg" alt="Image of miniaure pc" />
+               </div>
+               <div class="article__content">
+                  <span>01</span>
+                  <a href="#" class="article__heading">Reviving Retro PCs</a>
+                  <p class="article__text">What happens when old PCs are given modern upgrades?</p>
+               </div>
+            </article>
+
+            <article class="article">
+               <div class="article__img-wrapper">
+                  <img src="./images/image-top-laptops.jpg" alt="Image of a notebook keyboard" />
+               </div>
+               <div class="article__content">
+                  <span>02</span>
+                  <a href="#" class="article__heading">Top 10 Laptops of 2022</a>
+                  <p class="article__text">Our best picks for various needs and budgets.</p>
+               </div>
+            </article>
+
+            <article class="article">
+               <div class="article__img-wrapper">
+                  <img src="./images/image-gaming-growth.jpg" alt="Image of a playstatio 4 controller" />
+               </div>
+               <div class="article__content">
+                  <span>03</span>
+                  <a href="#" class="article__heading">The Growth of Gaming</a>
+                  <p class="article__text">How the pandemic has sparked fresh opportunities.</p>
+               </div>
+            </article>
+         </section>
+      </main>
+
+      <footer class="attribution">
+         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded
+         by <a href="https://github.com/dupakarovsky">Dupakarovsky</a>.
+      </footer>
+   </body>
+</html>
